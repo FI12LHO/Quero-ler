@@ -13,7 +13,11 @@ export default function BookDetail({data, onHandleclose}:Prop) {
     }
 
     return(
-        <div className='z-10 fixed top-[5%] left-[10%] flex flex-row items-center w-4/5 max-h-[90%] bg-[#7082C3] p-8 text-white font-sans font-normal'>
+        <div className='
+            z-10 fixed bg-[#7082C3] text-white font-sans font-normal
+            flex-col items-center p-2 m-5 text-center justify-between overflow-y-auto scroll-m-2 max-h-[90%]
+            min-[1024px]:flex min-[1024px]:flex-row min-[1024px]:w-4/5 min-[1024px]:p-8
+        '>
             <div className="flex flex-col min-w-[50%] justify-between">
                 <div className="flex flex-col">
                     <span className="mb-2 font-title font-bold text-3xl w-[100%]">{ data.title }</span>
@@ -47,8 +51,11 @@ export default function BookDetail({data, onHandleclose}:Prop) {
                     </button>
                 </div>
             </div>
-            <div className="bg-white p-3 shadow-input">
-                <p className="font-sans font-normal text-black text-lg break-words text-ellipsis">{ data.description }</p>
+            <div className="bg-white p-3 shadow-input mt-5 max-h-[380px] min-[1024px]:mt-0">
+                <p className="
+                    font-sans font-normal text-black text-lg break-words text-ellipsis overflow-y-auto scroll-m-0
+                    min-[1024px]:max-h-[360px]
+                ">{ data.description }</p>
             </div>
         </div>
     )

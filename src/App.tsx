@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { KeyboardEvent, useState } from 'react';
 import { MagnifyingGlass } from 'phosphor-react';
 import BookDetail from './components/bookDetail';
 import BookProp from './@types/book';
@@ -7,12 +7,18 @@ import DefaultData from './utils/defaultBookData';
 function App() {
   const [search, setSearch] = useState('');
   const [bookData, setBookData] = useState<BookProp>(DefaultData);
-  const [open, setOpen] = useState(false);
-  const popupStyle = 'fixed z-10 bg-[#00000060] w-screen h-screen flex';
+  const [open, setOpen] = useState(true);
+  const popupStyle = 'fixed z-10 bg-[#00000060] w-screen h-screen flex items-center justify-center';
 
 
   function handleClosePopup() {
     setOpen(false);
+  }
+
+  function handleKeyPress(event:KeyboardEvent) {
+    if (event.key === 'Enter') {
+      getBook();
+    }
   }
 
   async function getBook() {
@@ -20,7 +26,7 @@ function App() {
       return null
     }
 
-    let bookTitle = search.replaceAll(' ', '+');
+    let bookTitle = search.trim().replaceAll(' ', '+');
 
     const result:BookProp = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${bookTitle}`)
      .then(res => res.json())
@@ -49,6 +55,7 @@ function App() {
           capitalize
           '
           placeholder='Volta ao mundo em 80 dias' 
+          onKeyPress={(e) => handleKeyPress(e)}
           value={search} onChange={(e) => { setSearch(e.target.value) }} 
         />
         <button 
