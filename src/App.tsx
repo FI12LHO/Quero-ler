@@ -7,7 +7,7 @@ import DefaultData from './utils/defaultBookData';
 function App() {
   const [search, setSearch] = useState('');
   const [bookData, setBookData] = useState<BookProp>(DefaultData);
-  const [hidden, setHidden] = useState(true);
+  const [hidden, setHidden] = useState(false);
 
   function handleKeyPress(event:KeyboardEvent) {
     if (event.key === 'Enter') {
