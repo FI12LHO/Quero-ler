@@ -19,7 +19,7 @@ Após os modulos instalados, utilize o comando $ npm start , para iniciar o proj
 
 ## Features
 
-    Esta aplicação foi desenvolvida utilizado o framework React, onde a principal função é o consumo da API de livros da Google. Há aplicação realiza uma busca na base de dados da Google utilizando sua API publica, após receber a resposta da API apresenta ao usuário e se necessário exiba ao usuário um link para acessar mais informações sobre o livro.
+  Esta aplicação foi desenvolvida utilizado o framework React, onde a principal função é o consumo da API de livros da Google. Há aplicação realiza uma busca na base de dados da Google utilizando sua API publica, após receber a resposta da API apresenta ao usuário e se necessário exiba ao usuário um link para acessar mais informações sobre o livro.
 
 ## Preview
 https://user-images.githubusercontent.com/40048345/197797300-8a92b0b5-27f6-480f-bb59-799d6221fccd.mp4
