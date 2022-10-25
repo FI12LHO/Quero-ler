@@ -7,13 +7,7 @@ import DefaultData from './utils/defaultBookData';
 function App() {
   const [search, setSearch] = useState('');
   const [bookData, setBookData] = useState<BookProp>(DefaultData);
-  const [open, setOpen] = useState(true);
-  const popupStyle = 'fixed z-10 bg-[#00000060] w-screen h-screen flex items-center justify-center';
-
-
-  function handleClosePopup() {
-    setOpen(false);
-  }
+  const [hidden, setHidden] = useState(true);
 
   function handleKeyPress(event:KeyboardEvent) {
     if (event.key === 'Enter') {
@@ -36,7 +30,7 @@ function App() {
     // Armazenando resultado da pesquisa
     setBookData(result);
     // Abrindo Popup com resultado da pesquisa
-    setOpen(true);
+    setHidden(false);
     // Limpando campo de pesquisa (input)
     setSearch('');
   }
@@ -66,10 +60,7 @@ function App() {
         </button>
       </div>
       
-      <div className={open ? popupStyle : `${popupStyle} hidden`}>
-        <span className="w-screen h-screen" onClick={handleClosePopup}></span>
-        <BookDetail data={bookData} onHandleclose={setOpen} />
-      </div>
+      <BookDetail data={bookData} hidden={hidden} onHandleclose={setHidden} />
     </div>
   );
 }
